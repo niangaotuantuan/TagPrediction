@@ -53,13 +53,14 @@ def find_all_combinations_helper(train_filename,index=1):
             header = r.next()
             rdr = csv.reader(r)
             for row in rdr:
-                a=row[index].lower()
-                b=row[3].lower()
+                a=row[index].lower() # a string containing the title (or body)
+                b=row[3].lower() # a string containing the list of tags
                 for x, y in product(a.split(), b.split()):
                     w.write("{},{}\n".format(x, y))
         word_tag_combination_counter=get_word_tag_combination_counter(index)
     
-    word_counter={}
+	# count the combinations
+    word_counter={} # key: word/tag pair, value: number of times they co-occur
     with open('..'+os.path.sep+'csv'+os.path.sep+train_filename,'rb') as file_name:
         reader=csv.reader(file_name)
         for row in reader:
