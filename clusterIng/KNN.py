@@ -207,7 +207,7 @@ def main():
 
 	print 'Loading full...'
 
-	small = load_matrix('training_matrix_full.txt', 100000)
+	small = load_matrix('training_matrix_full.txt', 100000) #generated from the cluster.py 
 
 	tsvd = TruncatedSVD(5000)
 
